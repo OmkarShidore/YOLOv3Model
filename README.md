@@ -3,7 +3,7 @@
 * Download weights for COCO and VOC: [from here](https://pjreddie.com/media/files/yolov3.weights)
 * update number of classes for custom object detection
 
-### How to create yolo from scrath by just refering config file
+### How to create yolo from scrath by just referring config file
 ##### Please check yolov3.cfg file for configuration of YOLO V3
 ##### There are 5 types of layers in YOLO V3
 * Convolution
