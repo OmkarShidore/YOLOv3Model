@@ -12,39 +12,39 @@
     output of the previous layer and and previous 3rd layer backwards from shortcut layer.
     We concate them and squeeze them through linear activation function.
     
-    '''
+    ```
     #Example:   
-     - [shortcut]
-     - from=-3  
-     - activation=linear  
-    '''
+      [shortcut]
+      from=-3  
+      activation=linear  
+    ```
     
 * Upsample: Upsamle is feature map of previous layer with a stride, which helps 
     increasing depth using bilinear upsampling.
     
-    '''
+    ```
     #Example:
-    - [upsample]
-    - stride=2
-     '''
+     [upsample]
+     stride=2
+     ```
      
 * Route: It has an attribute layers which can have either one, or two values.
 
-    '''
+    ```
     #Example:
-    - [route]
-    - layers = -4
-    '''
+     [route]
+     layers = -4
+    ```
     
     When layers attribute has only one value, it outputs the feature maps of the 
     layer indexed by the value. In our example, it is -4, so the layer will output 
     feature map from the 4th layer backwards from the Route layer.
     
-    '''
+    ```
     #Example:
-    - [route]
-    - layers = -1, 61
-     '''
+     [route]
+     layers = -1, 61
+    ```
      
     When layers has two values, it returns the concatenated feature maps of the layers
      indexed by it's values. In our example it is -1, 61, and the layer will output 
@@ -53,18 +53,18 @@
 
 * YOLO Detection Layer
 
-    '''
+    ```
     #Example:
-    - [yolo]
-    - mask = 0,1,2
-    - anchors = 10,13,  16,30,  33,23,  30,61,  62,45,  59,119,  116,90,  156,198,  373,326
-    - classes=80  
-    - num=9
-    - jitter=.3
-    - ignore_thresh = .5
-    - truth_thresh = 1
-    - random      
-    '''
+     [yolo]
+     mask = 0,1,2
+     anchors = 10,13,  16,30,  33,23,  30,61,  62,45,  59,119,  116,90,  156,198,  373,326
+     classes=80  
+     num=9
+     jitter=.3
+     ignore_thresh = .5
+     truth_thresh = 1
+     random      
+    ```
     
    YOLO layer corresponds to the Detection layer.
     The anchors describes 9 'anchors', but only the anchors which are indexed by 
