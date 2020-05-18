@@ -11,30 +11,34 @@
 * Shortcut: It's a skip connection like the one used in ResNet, where the
     output of the previous layer and and previous 3rd layer backwards from shortcut layer.
     We concate them and squeeze them through linear activation function
+    '''
     #Example:   [shortcut]
                 from=-3  
                 activation=linear  
-
+    '''
 * Upsample: Upsamle is feature map of previous layer with a stride, which helps 
     increasing depth using bilinear upsampling.
+    '''
     #Example:    [upsample]
                 stride=2
-
+     '''
 * Route: It has an attribute layers which can have either one, or two values.
     #Example:   [route]
                 layers = -4
     When layers attribute has only one value, it outputs the feature maps of the 
     layer indexed by the value. In our example, it is -4, so the layer will output 
     feature map from the 4th layer backwards from the Route layer.
-
+    '''
     #Example:   [route]
                 layers = -1, 61
+     '''
     When layers has two values, it returns the concatenated feature maps of the layers
      indexed by it's values. In our example it is -1, 61, and the layer will output 
      feature maps from the previous layer (-1) and the 61st layer, concatenated along 
      the depth dimension.      
 
-* YOLO
+* YOLO Detection Layer
+    '''
     #Example:
                 [yolo]
                 mask = 0,1,2
@@ -45,6 +49,7 @@
                 ignore_thresh = .5
                 truth_thresh = 1
                 random      
+    '''
     YOLO layer corresponds to the Detection layer.
     The anchors describes 9 'anchors', but only the anchors which are indexed by 
     'attributes' of the 'mask' tag are used. Here, the value of 'mask' is 0,1,2, which means 
