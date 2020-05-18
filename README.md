@@ -6,9 +6,9 @@
 ### How to create yolo from scrath by just referring config file
 ##### Please check yolov3.cfg file for configuration of YOLO V3
 ##### There are 5 types of layers in YOLO V3
-* Convolution
+1. Convolution
 
-* Shortcut: It's a skip connection like the one used in ResNet, where the
+2. Shortcut: It's a skip connection like the one used in ResNet, where the
     output of the previous layer and and previous 3rd layer backwards from shortcut layer.
     We concate them and squeeze them through linear activation function.
     
@@ -19,7 +19,7 @@
       activation=linear  
     ```
     
-* Upsample: Upsamle is feature map of previous layer with a stride, which helps 
+3. Upsample: Upsamle is feature map of previous layer with a stride, which helps 
     increasing depth using bilinear upsampling.
     
     ```
@@ -28,7 +28,7 @@
      stride=2
      ```
      
-* Route: It has an attribute layers which can have either one, or two values.
+4. Route: It has an attribute layers which can have either one, or two values.
 
     ```
     #Example:
@@ -51,7 +51,7 @@
      feature maps from the previous layer (-1) and the 61st layer, concatenated along 
      the depth dimension.      
 
-* YOLO Detection Layer
+5. YOLO Detection Layer
 
     ```
     #Example:
